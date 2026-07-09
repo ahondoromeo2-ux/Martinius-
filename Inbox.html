@@ -3,24 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martinius - Inbox</title>
+    <title>Martinius - Communications</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-        body { background-color: #ffffff; padding-top: 60px; padding-bottom: 70px; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; height: 60px; background-color: #ffffff; border-bottom: 1px solid #dbdbdb; position: fixed; top: 0; width: 100%; }
+        body { background-color: #fff; padding-top: 100px; padding-bottom: 70px; }
+
+        header { background-color: #fff; border-bottom: 1px solid #dbdbdb; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .tabs { display: flex; justify-content: space-around; padding: 15px; border-bottom: 1px solid #eee; }
+        .tab { font-weight: 600; color: #888; cursor: pointer; }
+        .tab.active { color: #000; border-bottom: 2px solid #000; }
+
+        .chat-list { padding: 20px; }
+        .chat-item { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; }
+        .avatar { width: 50px; height: 50px; border-radius: 50%; background-color: #ccc; margin-right: 15px; }
+        
         footer { display: flex; justify-content: space-around; align-items: center; height: 60px; background-color: #ffffff; border-top: 1px solid #dbdbdb; position: fixed; bottom: 0; width: 100%; }
         footer a { color: #262626; font-size: 1.5rem; text-decoration: none; }
-        .chat-list { padding: 20px; }
     </style>
 </head>
 <body>
+
     <header>
-        <h2>Messages</h2>
+        <div class="tabs">
+            <div class="tab active">Messages</div>
+            <div class="tab">Appels/Vocaux</div>
+        </div>
     </header>
 
     <main class="chat-list">
-        <p>Espace de discussion avec tes amis.</p>
+        <!-- Exemple d'appel récent -->
+        <div class="chat-item">
+            <div class="avatar" style="background-color: #ef4444;"></div>
+            <div>
+                <h3>Déborah</h3>
+                <p><i class="fa-solid fa-phone-slash"></i> Appel manqué - 10:30</p>
+            </div>
+        </div>
+        <div class="chat-item">
+            <div class="avatar" style="background-color: #10b981;"></div>
+            <div>
+                <h3>Groupe Martinius</h3>
+                <p><i class="fa-solid fa-microphone"></i> Message vocal - 0:45</p>
+            </div>
+        </div>
     </main>
 
     <footer>
