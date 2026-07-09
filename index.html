@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martinius - QG Collectif</title>
+    <style>
+        /* Réinitialisation de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fafafa;
+            color: #262626;
+        }
+
+        /* En-tête (Header) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #dbdbdb;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Espace central pour les publications */
+        main {
+            margin-top: 60px;
+            margin-bottom: 60px;
+            padding: 10px;
+        }
+
+        .post-card {
+            background-color: #ffffff;
+            border: 1px solid #dbdbdb;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+
+        /* Barre de navigation basse (Footer) */
+        footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px;
+            background-color: #ffffff;
+            border-top: 1px solid #dbdbdb;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            font-weight: bold;
+            color: #262626;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre supérieure -->
+    <header>
+        <h1>QG Collectif</h1>
+        <a href="#" class="nav-btn">Inbox 💬</a>
+    </header>
+
+    <!-- Fil d'actualité -->
+    <main>
+        <div class="post-card">
+            <p><strong>@Membre1</strong> : Bienvenue sur Martinius ! Le réseau est en cours de construction.</p>
+        </div>
+        <div class="post-card">
+            <p><strong>@Membre2</strong> : Hâte de voir le Repère de Lox en action.</p>
+        </div>
+    </main>
+
+    <!-- Barre de navigation inférieure -->
+    <footer>
+        <a href="#" class="nav-btn">🏠 Accueil</a>
+        <a href="#" class="nav-btn">📱 Reels</a>
+        <a href="#" class="nav-btn">➕ Publier</a>
+        <a href="#" class="nav-btn">👤 Profil</a>
+    </footer>
+
+</body>
+</html>
