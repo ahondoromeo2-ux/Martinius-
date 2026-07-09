@@ -1,0 +1,26 @@
+/* Martinius Design System */
+:root {
+    --bg-color: #0f0f0f; /* Fond sombre mystérieux */
+    --card-bg: #1a1a1a; /* Fond des cartes/sections */
+    --accent-color: #00d2ff; /* Couleur "électrique" de LOX */
+    --text-color: #e0e0e0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+header, footer {
+    background-color: var(--card-bg) !important;
+    border-color: #333 !important;
+}
+
+.post, .settings-list, .message {
+    background-color: var(--card-bg) !important;
+    border: 1px solid #333 !important;
+    color: var(--text-color) !important;
+}
+
+h1, h2, h3 { color: var(--accent-color); }
