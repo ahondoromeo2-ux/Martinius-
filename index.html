@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Martinius - QG Collectif</title>
+    <!-- Ajout d'une bibliothèque d'icônes professionnelles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Réinitialisation de base */
+        /* Réinitialisation et base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
             background-color: #fafafa;
             color: #262626;
+            padding-top: 60px;
+            padding-bottom: 70px;
         }
 
-        /* En-tête (Header) */
+        /* En-tête (Header) stylisé */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
+            padding: 0 20px;
+            height: 60px;
             background-color: #ffffff;
             border-bottom: 1px solid #dbdbdb;
             position: fixed;
@@ -33,23 +38,117 @@
         }
 
         header h1 {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-style: italic;
         }
 
-        /* Espace central pour les publications */
-        main {
-            margin-top: 60px;
-            margin-bottom: 60px;
-            padding: 10px;
+        .header-icons i {
+            font-size: 1.4rem;
+            margin-left: 15px;
+            color: #262626;
+            cursor: pointer;
         }
 
-        .post-card {
+        /* Section des Storys */
+        .stories-container {
+            display: flex;
+            padding: 15px 10px;
             background-color: #ffffff;
-            border: 1px solid #dbdbdb;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            padding: 15px;
+            border-bottom: 1px solid #dbdbdb;
+            overflow-x: auto;
+        }
+
+        .stories-container::-webkit-scrollbar {
+            display: none; /* Masque la barre de défilement */
+        }
+
+        .story {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 8px;
+            cursor: pointer;
+        }
+
+        .story-avatar {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            padding: 3px;
+        }
+
+        .story-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .story span {
+            font-size: 0.75rem;
+            margin-top: 5px;
+            color: #262626;
+        }
+
+        /* Section des Publications (Posts) */
+        .post {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dbdbdb;
+            margin-bottom: 10px;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+        }
+
+        .post-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #ccc;
+        }
+
+        .post-username {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 350px;
+            background-color: #efefef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #888;
+        }
+
+        .post-actions {
+            padding: 10px 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .post-actions i {
+            font-size: 1.4rem;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .post-caption {
+            padding: 0 12px 12px 12px;
+            font-size: 0.9rem;
+        }
+
+        .post-caption strong {
+            font-weight: 600;
         }
 
         /* Barre de navigation basse (Footer) */
@@ -57,7 +156,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding: 15px;
+            height: 60px;
             background-color: #ffffff;
             border-top: 1px solid #dbdbdb;
             position: fixed;
@@ -66,10 +165,10 @@
             z-index: 1000;
         }
 
-        .nav-btn {
-            font-weight: bold;
+        footer i {
+            font-size: 1.5rem;
             color: #262626;
-            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -78,25 +177,87 @@
     <!-- Barre supérieure -->
     <header>
         <h1>QG Collectif</h1>
-        <a href="#" class="nav-btn">Inbox 💬</a>
+        <div class="header-icons">
+            <i class="fa-regular fa-square-plus"></i>
+            <i class="fa-brands fa-facebook-messenger"></i>
+        </div>
     </header>
+
+    <!-- Zone des Storys -->
+    <div class="stories-container">
+        <div class="story">
+            <div class="story-avatar">
+                <img src="https://via.placeholder.com/60" alt="Avatar">
+            </div>
+            <span>Toi</span>
+        </div>
+        <div class="story">
+            <div class="story-avatar">
+                <img src="https://via.placeholder.com/60" alt="Avatar">
+            </div>
+            <span>Membre_1</span>
+        </div>
+        <div class="story">
+            <div class="story-avatar">
+                <img src="https://via.placeholder.com/60" alt="Avatar">
+            </div>
+            <span>Membre_2</span>
+        </div>
+    </div>
 
     <!-- Fil d'actualité -->
     <main>
-        <div class="post-card">
-            <p><strong>@Membre1</strong> : Bienvenue sur Martinius ! Le réseau est en cours de construction.</p>
-        </div>
-        <div class="post-card">
-            <p><strong>@Membre2</strong> : Hâte de voir le Repère de Lox en action.</p>
-        </div>
+        <!-- Exemple de publication 1 -->
+        <article class="post">
+            <div class="post-header">
+                <div class="post-avatar"></div>
+                <span class="post-username">Membre_1</span>
+            </div>
+            <div class="post-image">
+                [Zone d'image 1]
+            </div>
+            <div class="post-actions">
+                <div>
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-comment"></i>
+                    <i class="fa-regular fa-paper-plane"></i>
+                </div>
+                <i class="fa-regular fa-bookmark"></i>
+            </div>
+            <div class="post-caption">
+                <strong>Membre_1</strong> Bienvenue dans le QG ! Le déploiement de Martinius commence. 🔥
+            </div>
+        </article>
+
+        <!-- Exemple de publication 2 -->
+        <article class="post">
+            <div class="post-header">
+                <div class="post-avatar"></div>
+                <span class="post-username">Lox_Système</span>
+            </div>
+            <div class="post-image">
+                [Zone d'image 2]
+            </div>
+            <div class="post-actions">
+                <div>
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-comment"></i>
+                    <i class="fa-regular fa-paper-plane"></i>
+                </div>
+                <i class="fa-regular fa-bookmark"></i>
+            </div>
+            <div class="post-caption">
+                <strong>Lox_Système</strong> Initialisation des paramètres visuels terminée avec succès. 
+            </div>
+        </article>
     </main>
 
     <!-- Barre de navigation inférieure -->
     <footer>
-        <a href="#" class="nav-btn">🏠 Accueil</a>
-        <a href="#" class="nav-btn">📱 Reels</a>
-        <a href="#" class="nav-btn">➕ Publier</a>
-        <a href="#" class="nav-btn">👤 Profil</a>
+        <i class="fa-solid fa-house"></i>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-clapperboard"></i>
+        <i class="fa-regular fa-user"></i>
     </footer>
 
 </body>
