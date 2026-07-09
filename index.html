@@ -43,11 +43,36 @@
             font-style: italic;
         }
 
+        .header-icons {
+            display: flex;
+            align-items: center;
+        }
+
         .header-icons i {
             font-size: 1.4rem;
             margin-left: 15px;
             color: #262626;
             cursor: pointer;
+        }
+
+        /* Style du badge de notification (NOUVEAU) */
+        .notification-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -6px;
+            background-color: #ff3040;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            font-size: 0.65rem;
+            font-weight: bold;
+            border: 2px solid #ffffff;
         }
 
         /* Section des Storys */
@@ -60,7 +85,7 @@
         }
 
         .stories-container::-webkit-scrollbar {
-            display: none; /* Masque la barre de défilement */
+            display: none;
         }
 
         .story {
@@ -179,6 +204,13 @@
         <h1>QG Collectif</h1>
         <div class="header-icons">
             <i class="fa-regular fa-square-plus"></i>
+            
+            <!-- LA CLOCHE DE NOTIFICATION EST ICI -->
+            <div class="notification-wrapper">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </div>
+            
             <i class="fa-brands fa-facebook-messenger"></i>
         </div>
     </header>
@@ -207,7 +239,6 @@
 
     <!-- Fil d'actualité -->
     <main>
-        <!-- Exemple de publication 1 -->
         <article class="post">
             <div class="post-header">
                 <div class="post-avatar"></div>
@@ -229,7 +260,6 @@
             </div>
         </article>
 
-        <!-- Exemple de publication 2 -->
         <article class="post">
             <div class="post-header">
                 <div class="post-avatar"></div>
