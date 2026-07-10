@@ -10,18 +10,12 @@
     <header><h1>Messages</h1></header>
 
     <main style="padding: 20px;">
-        <!-- Zone où les messages s'afficheront -->
-        <div id="messages-container" style="margin-bottom: 20px;">
-            <div class="message">
-                <h3>Déborah <span style="color: #00d2ff;">●</span></h3>
-                <p>Connexion établie...</p>
+        <div id="messages-container" style="margin-bottom: 80px;">
             </div>
-        </div>
 
-        <!-- Zone de saisie -->
-        <div style="display: flex; gap: 10px;">
-            <input type="text" id="message-input" placeholder="Écrire un message..." style="flex: 1; padding: 10px; border-radius: 5px; border: none;">
-            <button id="send-btn" style="padding: 10px; background: #00d2ff; border: none; border-radius: 5px; color: white;">Envoyer</button>
+        <div style="position: fixed; bottom: 70px; left: 0; right: 0; padding: 10px; background: #0f0f0f; display: flex; gap: 10px;">
+            <input type="text" id="message-input" placeholder="Écrire un message..." style="flex: 1; padding: 10px; border-radius: 5px; border: none; background: #222; color: white;">
+            <button id="send-btn" style="padding: 10px 20px; background: #00d2ff; border: none; border-radius: 5px; color: black; font-weight: bold;">Envoyer</button>
         </div>
     </main>
 
@@ -33,18 +27,30 @@
         <a href="profile.html"><i class="fa-solid fa-user"></i></a>
     </footer>
 
-    <!-- Liaison avec ton cerveau Firebase -->
-    <script type="module" src="app.js"></script>
-    
     <script type="module">
-        import { envoyerMessage } from './app.js';
+        import { envoyerMessage, ecouterMessages } from './app.js';
         
+        // 1. Envoyer le message
         document.getElementById('send-btn').addEventListener('click', () => {
             const input = document.getElementById('message-input');
             if (input.value.trim() !== "") {
                 envoyerMessage(input.value);
-                input.value = ""; // Vide le champ après envoi
+                input.value = "";
             }
+        });
+
+        // 2. Écoute active (temps réel)
+        const container = document.getElementById('messages-container');
+        
+        ecouterMessages((messages) => {
+            container.innerHTML = ""; // Rafraîchit l'affichage
+            messages.forEach(msg => {
+                const div = document.createElement('div');
+                div.style.marginBottom = "15px";
+                div.innerHTML = `<strong style="color: #00d2ff;">${msg.expediteur}</strong><p style="margin: 5px 0;">${msg.texte}</p>`;
+                container.appendChild(div);
+            });
+            window.scrollTo(0, document.body.scrollHeight);
         });
     </script>
 </body>
