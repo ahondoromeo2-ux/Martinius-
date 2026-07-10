@@ -8,10 +8,20 @@
 </head>
 <body>
     <header><h1>Messages</h1></header>
+
     <main style="padding: 20px;">
-        <div class="message">
-            <h3>Déborah <span style="color: #00d2ff;">●</span></h3>
-            <p>Tu me manques...</p>
+        <!-- Zone où les messages s'afficheront -->
+        <div id="messages-container" style="margin-bottom: 20px;">
+            <div class="message">
+                <h3>Déborah <span style="color: #00d2ff;">●</span></h3>
+                <p>Connexion établie...</p>
+            </div>
+        </div>
+
+        <!-- Zone de saisie -->
+        <div style="display: flex; gap: 10px;">
+            <input type="text" id="message-input" placeholder="Écrire un message..." style="flex: 1; padding: 10px; border-radius: 5px; border: none;">
+            <button id="send-btn" style="padding: 10px; background: #00d2ff; border: none; border-radius: 5px; color: white;">Envoyer</button>
         </div>
     </main>
 
@@ -22,5 +32,20 @@
         <a href="notifications.html"><i class="fa-solid fa-heart"></i></a>
         <a href="profile.html"><i class="fa-solid fa-user"></i></a>
     </footer>
+
+    <!-- Liaison avec ton cerveau Firebase -->
+    <script type="module" src="app.js"></script>
+    
+    <script type="module">
+        import { envoyerMessage } from './app.js';
+        
+        document.getElementById('send-btn').addEventListener('click', () => {
+            const input = document.getElementById('message-input');
+            if (input.value.trim() !== "") {
+                envoyerMessage(input.value);
+                input.value = ""; // Vide le champ après envoi
+            }
+        });
+    </script>
 </body>
 </html>
