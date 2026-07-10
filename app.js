@@ -1,24 +1,24 @@
-// https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js
-const firebaseConfig = {
-  apiKey: "TA_CLE_API",
-  authDomain: "ton-projet.firebaseapp.com",
-  projectId: "ton-projet",
-  storageBucket: "ton-projet.appspot.com",
-  messagingSenderId: "ton-id",
-  appId: "ton-app-id"
-};
-
-// Initialisation
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
+const firebaseConfig = { /* TON CODE CONFIG ICI */ };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Exemple pour envoyer un message dans inbox
-async function envoyerMessage(texte) {
+// Envoyer un message
+export async function envoyerMessage(texte) {
     await addDoc(collection(db, "messages"), {
         texte: texte,
-        date: new Date()
+        date: serverTimestamp(),
+        expediteur: "Roméo" 
     });
-                            }
+}
+
+// Écouter les messages en temps réel (pour l'affichage)
+export function ecouterMessages(callback) {
+    const q = query(collection(db, "messages"), orderBy("date", "asc"));
+    onSnapshot(q, (snapshot) => {
+        const messages = snapshot.docs.map(doc => doc.data());
+        callback(messages);
+    });
+}
